@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>LESSON 7</title>
+</head>
+
+<style>
+	body {
+		position: relative;
+		margin: 0;
+		padding: 0;
+	}
+
+	body .div-a {
+		position: relative;
+		height: 100vh;
+		width: 100vw;
+		overflow: hidden;
+	}
+
+	body .div-b {
+		position: absolute;
+		height: 100%;
+		width: 360px;
+		left: auto;
+		top: 0;
+		right: 0;
+		background: grey;
+	}
+
+	body .div-b.hide {
+		transform: translate3d(100%, 0, 0);
+		transition: transform 1s ease-in-out 0s; 
+	}
+
+	body .div-b.show {
+		transform: translate3d(0%, 0, 0);
+		transition: transform 1s ease-in-out 0s; 
+	}
+</style>
+
+<body>
+	<div class="div-a">
+		<button>SIDER</button>
+
+		<div class="div-b hide">
+			PANEL
+		</div>
+	</div>
+
+	<script src="assets/jquery.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('button').on('click', function(){
+				if ( $('.div-b').hasClass('hide') ) {
+					$('.div-b').removeClass('hide').addClass('show');
+				} else {
+					$('.div-b').removeClass('show').addClass('hide');
+				}
+			});
+			
+		});
+	</script>
+</body>
+</html>
